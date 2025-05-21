@@ -52,3 +52,23 @@ export async function POST(request: Request) {
     );
   }
 }
+
+// ✅ Add GET handler to fetch all emergency requests
+export async function GET() {
+  try {
+    await ConnectDB();
+
+    const emergencies = await Emergency.find().sort({ time: -1 }); // Latest first
+
+    return NextResponse.json(
+      { success: true, data: emergencies },
+      { status: 200 }
+    );
+  } catch (error) {
+    console.error('Error fetching emergency requests:', error);
+    return NextResponse.json(
+      { message: 'Server error', error },
+      { status: 500 }
+    );
+  }
+}

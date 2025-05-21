@@ -39,6 +39,9 @@ export default function Navbar() {
           <Link href="/ambulance" className="block text-gray-300 hover:text-white px-2 py-1 rounded">
             Ambulance
           </Link>
+            <Link href="/emergency" className="block text-gray-300 hover:text-white px-2 py-1 rounded">
+            Emergency Request
+          </Link>
         </div>
 
         {/* Mobile Menu Button */}
